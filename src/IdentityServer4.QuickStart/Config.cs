@@ -51,6 +51,20 @@ namespace IdentityServer4.QuickStart
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile
                     }
+                },
+
+                new Client
+                {
+                    ClientId = "mvc2",
+                    ClientName = "Mvc Client",
+                    AllowedGrantTypes = GrantTypes.Implicit,
+                    RedirectUris = {"http://localhost:5003/signin-oidc"},
+                    PostLogoutRedirectUris = {"http://localhost:5003/signout-callback-oidc"},
+                    AllowedScopes = new List<string>
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile
+                    }
                 }
             };
         }
