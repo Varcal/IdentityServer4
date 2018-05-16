@@ -43,7 +43,12 @@ namespace IdentityServer4.QuickStart
                 {
                     ClientId = "mvc",
                     ClientName = "Mvc Client",
-                    AllowedGrantTypes = GrantTypes.Implicit,
+                    AllowedGrantTypes = GrantTypes.HybridAndClientCredentials,
+                    RequireConsent = false,
+                    ClientSecrets =
+                    {
+                        new Secret("secret".Sha256())
+                    },
                     RedirectUris = {"http://localhost:5002/signin-oidc"},
                     PostLogoutRedirectUris = {"http://localhost:5002/signout-callback-oidc"},
                     AllowedScopes = new List<string>
